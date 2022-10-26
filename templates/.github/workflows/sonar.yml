@@ -1,0 +1,42 @@
+name: Sonar
+on:
+  push:
+    branches:
+      - master 
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions: read-all
+
+jobs:
+  sonar:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+
+      - name: Config Python Libs
+        run: |
+          pip install -r src/requirements.txt
+
+      - name: Running Unit Test
+        run: |
+            coverage run -m unittest
+            coverage xml
+
+      - name: PyLint Run
+        run: flake8
+
+      - name: Sonar Exec
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

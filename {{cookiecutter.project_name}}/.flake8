@@ -1,0 +1,16 @@
+[flake8]
+exclude =
+  .git,
+  __pycache__,
+  build,
+  dist,
+  .tox,
+  venv,
+  .venv,
+  .pytest_cache,
+  src/app/__init__.py,
+  src/app/*/__init__.py,
+  test
+ignore = F401, E722, E701, E251
+
+max-line-length = 120

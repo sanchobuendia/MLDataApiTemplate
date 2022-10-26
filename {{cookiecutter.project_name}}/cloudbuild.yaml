@@ -1,0 +1,7 @@
+steps:
+- name: "gcr.io/cloud-builders/docker"
+  entrypoint: 'bash'
+  args:
+  - -c
+  - |
+    docker buildx build --no-cache -t gcr.io/YOUR_TAG -f Dockerfile --build-arg  WORKERS_ARG=${_WORKERS} --build-arg ENV_VAR_1_ARG=${_ENV_VAR_1} --build-arg ENV_VAR_2_ARG=${_ENV_VAR_2} . --push
