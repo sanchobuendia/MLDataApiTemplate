@@ -1,0 +1,5 @@
+{
+    "project_name": "ProjectName",
+    "organization": "tradersclub",
+    "use_database": ["yes", "no"]
+}

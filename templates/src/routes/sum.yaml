@@ -1,0 +1,22 @@
+summary: "Get the sum of two numbers"
+description: "Get the sum of two numbers"
+consumes:
+- "application/json"
+tags:
+ - sum
+produces:
+- "application/json"
+parameters:
+  - in: path
+    name: num_1
+    description: "First number"
+    required: true
+  - in: path
+    name: num_2
+    description: "Second number"
+    required: true
+responses:
+  200:
+    description: "CREATED"
+  400:
+    description: "BAD REQUEST"

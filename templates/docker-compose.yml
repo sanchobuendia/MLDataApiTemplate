@@ -1,0 +1,22 @@
+version: "3.8"
+x-logging: &default-logging
+  options:
+    max-size: "100m"
+    max-file: "5"
+  driver: json-file
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    environment:
+      - NOSE_NOCAPTURE=0
+    volumes:
+      - ./src:/api/src
+      - ./test:/api/test
+      - ./htmlcov:/api/htmlcov
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
