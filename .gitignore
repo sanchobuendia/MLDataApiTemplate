@@ -1,18 +1,53 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+.env
+service-account.json
 
-# Other files and folders
-.settings/
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+.DS_store
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+*.manifest
+*.spec
+
+pip-log.txt
+pip-delete-this-directory.txt
+
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Logs
+logs/
